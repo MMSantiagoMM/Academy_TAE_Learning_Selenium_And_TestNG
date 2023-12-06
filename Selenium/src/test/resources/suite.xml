@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Suite2">
+
+    <test name="SimpleTests">
+        <parameter name="testType" value="testNG" />
+        <groups>
+            <run>
+                <include name="TestSuite" />
+            </run>
+        </groups>
+        <classes>
+            <class name="tests.AssertionPractice"/>
+        </classes>
+    </test>
+
+</suite>

@@ -6,43 +6,42 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import pages.HomePage;
 
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 public class ProductStore {
 
-    private WebDriver driver = null;
-    private String driverPath = "C:\\Users\\s.mosquera\\IdeaProjects\\TAE\\Academy_TAE\\Selenium\\src\\test\\java\\utils\\chromedriver.exe";
+    WebDriver driver = null;
+    HomePage homePage;
 
 
+    @BeforeTest
+    public void beforeTest(){
+         String driverPath = "C:\\Users\\s.mosquera\\IdeaProjects\\TAE\\Academy_TAE\\" +
+                "Selenium\\src\\test\\java\\utils\\chromedriver.exe";
+        System.setProperty("webDriver.chrome.driver", driverPath);
+        driver = new ChromeDriver();
+        homePage = new HomePage(driver,"https://demoblaze.com/");
+    }
 
 
     @Test
     public void testProductStoreAboutUs(){
-        System.setProperty("webDriver.chrome.driver", driverPath);
-        driver = new ChromeDriver();
-        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(3));
 
+        homePage.clickAboutUsLink();
 
-        driver.navigate().to("https://demoblaze.com/");
-
-        WebElement aboutUsLink = driver.findElement(By.cssSelector("a.nav-link[data-target=\"#videoModal\"]"));
-        aboutUsLink.click();
-
-        //WebElement buttonPlay = driver.findElement(By.className("vjs-poster"));
-        WebElement buttonPlay = wait.until(ExpectedConditions.elementToBeClickable(
-                By.className("vjs-poster")
-        ));
-        buttonPlay.click();
+        homePage.setButtonPlay();
 
 
     }
 
     @Test
     public void testLogin(){
-        System.setProperty("webDriver.chrome.driver", driverPath);
+        //System.setProperty("webDriver.chrome.driver", driverPath);
         driver = new ChromeDriver();
         WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(3));
         driver.navigate().to("https://demoblaze.com/");
