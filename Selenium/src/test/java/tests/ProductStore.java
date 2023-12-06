@@ -1,11 +1,13 @@
 package tests;
 
+import org.checkerframework.checker.guieffect.qual.AlwaysSafe;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pages.HomePage;
@@ -13,24 +15,13 @@ import pages.HomePage;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
-public class ProductStore {
-
-    WebDriver driver = null;
-    HomePage homePage;
-
-
-    @BeforeTest
-    public void beforeTest(){
-         String driverPath = "C:\\Users\\s.mosquera\\IdeaProjects\\TAE\\Academy_TAE\\" +
-                "Selenium\\src\\test\\java\\utils\\chromedriver.exe";
-        System.setProperty("webDriver.chrome.driver", driverPath);
-        driver = new ChromeDriver();
-        homePage = new HomePage(driver,"https://demoblaze.com/");
-    }
+public class ProductStore extends BaseTest {
 
 
     @Test
     public void testProductStoreAboutUs(){
+
+        getHomePage();
 
         homePage.clickAboutUsLink();
 
@@ -39,7 +30,7 @@ public class ProductStore {
 
     }
 
-    @Test
+    //@Test
     public void testLogin(){
         //System.setProperty("webDriver.chrome.driver", driverPath);
         driver = new ChromeDriver();

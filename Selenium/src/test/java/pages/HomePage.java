@@ -8,11 +8,12 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import javax.naming.directory.SearchResult;
 import java.time.Duration;
 
-public class HomePage {
+public class HomePage extends BasePage {
 
-    public WebDriver driver;
+
 
 
 
@@ -22,18 +23,20 @@ public class HomePage {
     @FindBy(className ="vjs-poster" )
     private WebElement buttonPlay;
 
-    public void clickAboutUsLink(){
+    public SearchResults clickAboutUsLink(){
         this.aboutUsLink.click();
+
     }
 
     public void setButtonPlay(){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
-        wait.until(ExpectedConditions.elementToBeClickable(buttonPlay)).click();
+        this.isElementDisplayed(buttonPlay);
+        buttonPlay.click();
     }
 
     public HomePage(WebDriver driver, String url){
+        super(driver);
         this.driver = driver;
         this.driver.get(url);
-        PageFactory.initElements(driver,this);
+
     }
 }
