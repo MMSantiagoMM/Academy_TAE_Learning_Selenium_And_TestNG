@@ -45,9 +45,10 @@ public class ProductStore {
         System.setProperty("webDriver.chrome.driver", driverPath);
         driver = new ChromeDriver();
         WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(3));
-
-
         driver.navigate().to("https://demoblaze.com/");
+
+
+
 
         WebElement signUp = driver.findElement(By.id("signin2"));
         signUp.click();
