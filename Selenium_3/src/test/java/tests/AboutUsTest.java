@@ -4,12 +4,12 @@ import org.testng.annotations.Test;
 
 public class AboutUsTest extends BaseTest{
 
-
     @Test
-    public void aboutUsTest(){
+    public void testHomePage(){
+
         getAboutUsPage();
-        aboutUsPage.pressAboutUs();
-        aboutUsPage.pressPlay();
+        aboutUsPage.clickAboutUs();
+        aboutUsPage.playVideo();
     }
 
 
