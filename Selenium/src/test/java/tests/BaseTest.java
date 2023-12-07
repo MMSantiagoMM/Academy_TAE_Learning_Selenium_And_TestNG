@@ -11,9 +11,6 @@ public class BaseTest {
     WebDriver driver = null;
     HomePage homePage;
 
-
-
-
     @BeforeTest
     public void beforeTest(){
         String driverPath = "C:\\Users\\s.mosquera\\IdeaProjects\\TAE\\Academy_TAE\\" +

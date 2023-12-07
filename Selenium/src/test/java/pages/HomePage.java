@@ -13,20 +13,12 @@ import java.time.Duration;
 
 public class HomePage extends BasePage {
 
-
-
-
-
     @FindBy(css = "a.nav-link[data-target=\"#videoModal\"]")
      private WebElement aboutUsLink;
 
     @FindBy(className ="vjs-poster" )
     private WebElement buttonPlay;
 
-    public SearchResults clickAboutUsLink(){
-        this.aboutUsLink.click();
-
-    }
 
     public void setButtonPlay(){
         this.isElementDisplayed(buttonPlay);
