@@ -23,7 +23,7 @@ public class ProductStore extends BaseTest {
 
         getHomePage();
 
-        homePage.clickAboutUsLink();
+        //homePage.clickAboutUsLink();
 
         homePage.setButtonPlay();
 
